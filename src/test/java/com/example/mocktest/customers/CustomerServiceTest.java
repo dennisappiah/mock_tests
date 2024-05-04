@@ -56,6 +56,8 @@ class CustomerServiceTest {
         given(customerRepository.selectCustomerByPhoneNumber(phoneNumber))
                 .willReturn(Optional.empty());
 
+        given(phoneNumberValidator.test(phoneNumber)).willReturn(true);
+
         // When
         underTest.registerNewCustomer(customerRequest);
 
